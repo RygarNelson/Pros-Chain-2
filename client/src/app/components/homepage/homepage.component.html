@@ -1,1 +1,20 @@
-<p>homepage works!</p>
+<p-menubar>
+    <ng-template pTemplate="start">
+        <img src="assets/images/logo-unicam.webp" height="80" class="p-mr-2">
+    </ng-template>
+    <ng-template pTemplate="end">
+        <div class="formgrid grid">
+            <div class="field col">
+                <input type="text" class="p-inputtext-sm" pInputText placeholder="Username">
+            </div>
+            <div class="field col">
+                <input type="password" class="p-inputtext-sm" aria-describedby="password-help" pInputText placeholder="Password">
+                <small id="password-help">Forgot your password?</small>
+            </div>
+            <div class="field col">
+                <button pButton pRipple type="button" id="login" label="Log In" class="p-button-sm"></button>
+                <button pButton pRipple type="button" id="register" label="Register" class="p-button-warning p-button-sm"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-menubar>
