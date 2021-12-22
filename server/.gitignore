@@ -147,8 +147,5 @@ build
 # Vagrant
 .vagrant
 
-# Maintenance Data
-server/maintenance_data
-
-# Maintenances Data
-server/maintenances_data
+# HTTPS Keys
+keys/

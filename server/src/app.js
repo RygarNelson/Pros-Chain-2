@@ -26,17 +26,19 @@ app.use(morgan('combined', {
 app.use(morgan('combined'))
 
 /* CORS */
-app.use(cors())
+app.use(cors({credentials: true, origin: true}))
 app.use(function allowCrossDomain(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Credentials', true)
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH, OPTIONS')
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, Origin, X-Requested-With, Content-Type, Accept, Authorization')
 
     if ('OPTIONS' === req.method)
-        res.sendStatus(200);
+        res.sendStatus(200)
     else
-        next();
-});
+        next()
+})
+app.options('*', cors({credentials: true, origin: true}))
 
 /* MISCELLANEOUS */
 app.use(express.json({limit: '10000kb'}))
