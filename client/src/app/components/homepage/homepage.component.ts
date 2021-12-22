@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { Toast } from 'src/app/classes/toast';
+import { SampleService } from 'src/app/services/sample.service';
 
 @Component({
   selector: 'app-homepage',
@@ -11,7 +12,7 @@ export class HomepageComponent implements OnInit {
   public username: string = "";
   public password: string = "";
 
-  constructor( private messageService: MessageService ) { }
+  constructor( private toast: Toast, private sampleservice: SampleService ) { }
 
   ngOnInit(): void {
   }
@@ -31,7 +32,7 @@ export class HomepageComponent implements OnInit {
     }
 
     if (errorAmount > 0) {
-      this.messageService.add({severity:'error', summary: 'Error', detail: errorMessage});
+      this.toast.showToastMessage("error", "Error", errorMessage);
       return false;
     } else {
       return true;
@@ -40,7 +41,17 @@ export class HomepageComponent implements OnInit {
 
   login(): void {
     if (this.checkInputs() === true) {
-      //TODO: Fare Login
+      this.sampleservice.checkServerConnection().subscribe({
+        next: (payload: any) => {
+          if (payload.success) {
+            this.toast.showToastMessage("success", "Success", "Server connection successful");
+          }
+        },
+        error: (error) => {
+          console.log(error);
+          this.toast.showToastMessage("error", "Error", error);
+        }
+      })
     }
   }
 

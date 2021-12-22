@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './modules/app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+
+import { Toast } from './classes/toast'
 
 //PrimeNG Modules
 import { SharedModule } from 'primeng/api';
@@ -14,6 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
+import { ImageModule } from 'primeng/image';
 
 import { MessageService } from 'primeng/api';
 
@@ -25,6 +29,7 @@ import { MessageService } from 'primeng/api';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
 
@@ -33,9 +38,10 @@ import { MessageService } from 'primeng/api';
     InputTextModule,
     ButtonModule,
     CardModule,
-    ToastModule
+    ToastModule,
+    ImageModule
   ],
-  providers: [MessageService],
+  providers: [MessageService, Toast],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
