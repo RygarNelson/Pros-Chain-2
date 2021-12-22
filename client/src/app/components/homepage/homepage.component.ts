@@ -11,10 +11,16 @@ export class HomepageComponent implements OnInit {
 
   public username: string = "";
   public password: string = "";
+  public login_disabled: boolean = false;
 
   constructor( private toast: Toast, private sampleservice: SampleService ) { }
 
   ngOnInit(): void {
+  }
+
+  private emptyValues(): void {
+    this.username = "";
+    this.password = "";
   }
 
   checkInputs(): boolean {
@@ -32,7 +38,7 @@ export class HomepageComponent implements OnInit {
     }
 
     if (errorAmount > 0) {
-      this.toast.showToastMessage("error", "Error", errorMessage);
+      this.toast.showToastMessage("error", "Error", errorMessage, true);
       return false;
     } else {
       return true;
@@ -40,6 +46,7 @@ export class HomepageComponent implements OnInit {
   }
 
   login(): void {
+    this.login_disabled = true;
     if (this.checkInputs() === true) {
       this.sampleservice.checkServerConnection().subscribe({
         next: (payload: any) => {
@@ -49,9 +56,14 @@ export class HomepageComponent implements OnInit {
         },
         error: (error) => {
           console.log(error);
-          this.toast.showToastMessage("error", "Error", error);
+          this.emptyValues();
+          this.login_disabled = false;
+          this.toast.showToastMessage("error", "Error", error, true);
         }
       })
+    } else {
+      this.emptyValues();
+      this.login_disabled = false;
     }
   }
 

@@ -12,7 +12,7 @@
                 <small id="password-help">Forgot your password?</small>
             </div>
             <div class="field col">
-                <button pButton pRipple type="button" id="login" label="Log In" class="p-button-sm" (click)="login()"></button>
+                <button pButton pRipple type="button" id="login" label="Log In" class="p-button-sm" (click)="login()" [disabled]="login_disabled"></button>
                 <button pButton pRipple type="button" id="register" label="Register" class="p-button-warning p-button-sm"></button>
             </div>
         </div>
