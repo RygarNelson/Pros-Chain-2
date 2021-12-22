@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -20,6 +20,7 @@ import { CardModule } from 'primeng/card';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
 
     SharedModule,
     MenubarModule,

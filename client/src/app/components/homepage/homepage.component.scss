@@ -3,6 +3,18 @@
 }
 
 #image-card{
-    width: 70%;
-    height: 70%;
+    display: block;
+    width: 66%;
+    height: 66%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-links{
+    margin-right: 1rem;
+}
+
+.pi-bars::before{
+    content: "";
 }

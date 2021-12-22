@@ -5,10 +5,10 @@
     <ng-template pTemplate="end">
         <div class="formgrid grid">
             <div class="field col">
-                <input type="text" class="p-inputtext-sm" pInputText placeholder="Username">
+                <input type="text" class="p-inputtext-sm" placeholder="Username" pInputText [(ngModel)]="username">
             </div>
             <div class="field col">
-                <input type="password" class="p-inputtext-sm" aria-describedby="password-help" pInputText placeholder="Password">
+                <input type="password" class="p-inputtext-sm" aria-describedby="password-help" placeholder="Password" pInputText [(ngModel)]="password">
                 <small id="password-help">Forgot your password?</small>
             </div>
             <div class="field col">
@@ -19,7 +19,7 @@
     </ng-template>
 </p-menubar>
 
-<p-card header="ProsChain" subheader="About Pros" class="p-card-shadow">
+<p-card header="ProsChain" subheader="About Pros" class="p-card-shadow" autoZIndex="false">
     <ng-template pTemplate="header">
         <img alt="Card" id="image-card" src="assets/images/business-efficiency.webp">
     </ng-template>
@@ -33,10 +33,10 @@
           with a wide range of applications domain such as smart manufacturing, smart government, smart health and smart city.
     </p>
     <ng-template pTemplate="footer">
-        <a href="http://pros.unicam.it/" color="light" outline="true">Home</a>
-        <a mdbBtn href="http://pros.unicam.it/projects/" color="light" outline="true">Projects</a>
-        <a mdbBtn href="http://pros.unicam.it/documents/" color="light" outline="true">Documents</a>
-        <a mdbBtn href="http://pros.unicam.it/collaborations/"color="light" outline="true">Collaborations</a>
-        <a mdbBtn href="http://pros.unicam.it/contact-us/" color="light" outline="true">Contact us</a>
+        <a href="http://pros.unicam.it/" class="footer-links">Home</a>
+        <a href="http://pros.unicam.it/projects/" class="footer-links">Projects</a>
+        <a href="http://pros.unicam.it/documents/" class="footer-links">Documents</a>
+        <a href="http://pros.unicam.it/collaborations/" class="footer-links">Collaborations</a>
+        <a href="http://pros.unicam.it/contact-us/" class="footer-links">Contact us</a>
     </ng-template>
 </p-card>
