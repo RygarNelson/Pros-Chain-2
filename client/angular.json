@@ -103,6 +103,10 @@
               "browserTarget": "pros-chain-2:build:development"
             }
           },
+          "options": {
+            "sslKey": "keys/client-key.pem",
+            "sslCert": "keys/client-cert.pem"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
