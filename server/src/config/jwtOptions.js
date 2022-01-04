@@ -1,7 +1,6 @@
-/** Remember to insert this file into .gitignore */
-var secret = 'secret'
+var secret = process.env.JWT_SECRET
 var jwtOptions = {
-    expiresIn: "8h"
+    expiresIn: process.env.JWT_EXPIRESIN
 }
 
 module.exports = { secret, jwtOptions }

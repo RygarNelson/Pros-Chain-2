@@ -18,7 +18,7 @@ app.use(helmet())
 // Create a rotating write stream
 var accessLogStream = rfs.createStream('access.log', {
     interval: '1d', // rotate daily
-    path: path.join(__dirname, 'log')
+    path: path.join(__dirname.substring(0, __dirname.length - 4), 'log')
 })
 app.use(morgan('combined', {
     stream: accessLogStream

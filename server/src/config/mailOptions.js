@@ -1,11 +1,10 @@
-/** Remember to insert this file into .gitignore */
 var mailOptions = {
-    service: "service",
+    service: process.env.MAIL_SERVICE,
     auth: {
-        user: 'email',
-        pass: 'password'
+        user: process.env.MAIL_AUTH_USER,
+        pass: process.env.MAIL_AUTH_PASSWORD
     },
-    receiver: 'receiver'
+    receiver: process.env.MAIL_RECEIVER
 }
 
 module.exports = { mailOptions }
